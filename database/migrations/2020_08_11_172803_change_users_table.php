@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReceiptProductsTable extends Migration
+class ChangeUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateReceiptProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('receipt_products', function (Blueprint $table) {
-            $table->id();
-            $table->integer('receipt_id');
-            $table->integer('product_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->text('api')->after('id');
+            $table->text('role')->after('api');
         });
     }
 
@@ -28,6 +26,9 @@ class CreateReceiptProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('receipt_products');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('api');
+            $table->dropColumn('role');
+        });
     }
 }

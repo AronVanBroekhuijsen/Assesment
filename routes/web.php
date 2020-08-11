@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/product/create', 'ProductController@store');
-Route::get('/products', 'ProductController@list');
+Route::get('/products/{api}', 'ProductController@list');
 Route::get('/cash-register/{barcode}', 'CashRegisterController@show');
 Route::post('/cash-register/receipt/create', 'CashRegisterController@receipt');
+Route::post('/cash-register/receipt/{receipt_id}/add-product', 'CashRegisterController@receipt_product');
+Route::post('/cash-register/receipt-product/{receipt_product_id}/change-amount', 'CashRegisterController@change_receipt_product');
+Route::post('/cash-register/receipt/{receipt_id}/close', 'CashRegisterController@close_receipt');
+Route::get('/cash-register/receipt/{receipt_id}/list', 'CashRegisterController@receipt_list');
 
 Route::get('/', function () {
     return view('welcome');
