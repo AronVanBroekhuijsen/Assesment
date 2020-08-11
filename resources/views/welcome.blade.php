@@ -84,17 +84,24 @@
                     Laravel
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div id="result">
                 </div>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                let test = {'barcode': 123, 'name': 'woosa', 'cost': 125.50, 'vat-class': 1};
+
+                $.ajax({
+                    url: "/product/create",
+                    type: "POST",
+                    data: test,
+                    success: function(result){
+                        $("#result").html(result);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
