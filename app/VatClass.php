@@ -10,6 +10,6 @@ class VatClass extends Model
     protected $fillable = ['amount'];
 
     public function product() {
-        return $this->hasMany('App\Product', 'vat_id', 'id');
+        return $this->hasMany('App\Product', 'id', 'vat_id');
     }
 }
