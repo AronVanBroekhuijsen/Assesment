@@ -1,5 +1,7 @@
 <p align="center"><h2>Woosa Assesment</h2></p>
 <hr>
+<p align="center">The role management isn't setup right since I was too tired, I can fix it so that there is a middleware and a table in the database. There might be a few more of these cases, but for now this is the code</p>
+<hr>
 <p align="center">
 <h4>/product/create</h4>
 <h5>POST</h5>
